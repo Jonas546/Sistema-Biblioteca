@@ -52,7 +52,7 @@
     <td><% lv.editora %></td>
     <td><% lv.qtde %></td>
     <td><button class="btn btn-info mb-2" id="ed" data-toggle="modal" ng-click="mais(lv.titulo)">+ Mais</button>&nbsp;
-    <button class="btn btn-secondary mb-2" id="ed" data-toggle="modal" ng-click="locacao(lv.titulo)">Locação</button>&nbsp;
+    <button class="btn btn-secondary mb-2" id="ed" data-toggle="modal" ng-click="locacao(lv.titulo, lv.qtde)">Locação</button>&nbsp;
     <button class="btn btn-primary mb-2" id="ed" data-toggle="modal" ng-click="edit(lv.titulo)">Editar</button>&nbsp;
     <button class="btn btn-danger mb-2" id="ed" data-toggle="modal" ng-click="delete(lv.id)">Excluir</button></td>
   </tr>
@@ -98,6 +98,24 @@
           <h6>Código: <% codigo %></h6>
           <br/>
           <button type="button" class="btn btn-secondary" id="btn-save" data-dismiss="modal" ng-click="resetForm('lcform')">Fechar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Livro Indisponível-->
+
+<div class="modal fade" id="ModalInd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header" align="center">
+        <h5 class="modal-title" id="myModalLabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livro Indisponível!</h5>
+      </div>
+
+      <div class="modal-body" align="center">
+          <button type="button" class="btn btn-secondary" id="btn-save" data-dismiss="modal">Fechar</button>
       </div>
 
     </div>

@@ -139,30 +139,38 @@ app.controller('LivroControll', function($scope, $http, livroService){
 
     //Escopo para Locacao
 
-        $scope.locacao = function(id){
+        $scope.locacao = function(id, aux){
 
             $scope.row1 = null;
             $scope.cl_search = '';
 
-        $http({
-            method: 'GET',
-            url:'/lv_show/'+id,
-            }).success(function(rs) {
+            if(aux > 0){
 
-                $scope.livros2 = rs;
+                $http({
+                    method: 'GET',
+                    url:'/lv_show/'+id,
+                }).success(function(rs) {
 
-                for(var i=0; i<rs.length; i++){
+                    $scope.livros2 = rs;
 
-                    $scope.locacao.id_livro = rs[i].id;
-                    $scope.livros2.titulo = rs[i].titulo;
-                    $scope.livros2.autor = rs[i].autor;
-                    $scope.livros2.editora = rs[i].editora;
-                    $scope.livros2.qtde = rs[i].qtde;
+                    for(var i=0; i<rs.length; i++){
 
-                }
+                        $scope.locacao.id_livro = rs[i].id;
+                        $scope.livros2.titulo = rs[i].titulo;
+                        $scope.livros2.autor = rs[i].autor;
+                        $scope.livros2.editora = rs[i].editora;
+                        $scope.livros2.qtde = rs[i].qtde;
 
-                $('#modal_loc').modal('show');
-        });
+                    }
+
+                    $('#modal_loc').modal('show');
+                });
+
+            } else {
+
+                $('#ModalInd').modal('show');
+
+            }   
 
     }
 
